@@ -1,14 +1,10 @@
+{% extends 'base/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
-    <title>usuario</title>
-</head>
-<body>
-    <h1>template usuario</h1>
-</body>
-</html>
+
+{% block titulo %} usuario {% endblock %}
+
+{% block content %}
+
+<p>aquí irá el contenido de las actividades del usuario, se dividirán en varios templates con formularios de registro y luego de inicio de sesión</p>
+
+{% endblock %}
