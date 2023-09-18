@@ -1,14 +1,55 @@
+{% extends 'base/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
-    <title>inicio</title>
-</head>
-<body>
-    <h1>primer template</h1>
-</body>
-</html>
+
+{% block titulo %} inicio {% endblock %}
+
+{% block content %}
+
+<div class="tile is-ancestor">
+    <div class="tile is-vertical is-8">
+      <div class="tile">
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child notification is-primary">
+            <p class="title">Noticias</p>
+            <p class="subtitle">titulo noticia</p>
+          </article>
+          <article class="tile is-child notification is-warning">
+            <p class="title">Recomendaciones de Salud</p>
+            <p class="subtitle">titulo recomendaciones</p>
+          </article>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-info">
+            <p class="title">Hospital XXXXX</p>
+            <p class="subtitle">Cuidando la salud de tu familia desde 1950</p>
+            <figure class="image is-4by3">
+              <img src="https://bulma.io/images/placeholders/640x480.png">
+            </figure>
+          </article>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-danger">
+          <p class="title">Obras sociales</p>
+          <p class="subtitle">Consulta el listado de las obras sociales</p>
+          <div class="content">
+            <!-- Content -->
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-success">
+        <div class="content">
+          <p class="title">Nuestros Profesionales</p>
+          <p class="subtitle">Listado de profesionales / Escecialidades</p>
+          <div class="content">
+            <!-- Content -->
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+
+{% endblock %}
