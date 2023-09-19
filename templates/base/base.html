@@ -15,10 +15,8 @@
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="{% url 'inicio' %}">
-        <img src="\static\assets\logo.png" width="250" height="250">
-      </a>
-  
+      <a class="navbar-item" href="{% url 'inicio' %}"><img src="\static\assets\logo.png" width="250" height="250" /></a>
+
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -28,13 +26,10 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="{% url 'inicio' %}">Inicio</a>       
-        
-  
-        <a class="navbar-item">
-          Turno Online
-        </a>
-  
+        <a class="navbar-item" href="{% url 'inicio' %}">Inicio</a>
+
+        <a class="navbar-item" href="{% url 'turno' 2023 %}">Turno Online</a>
+
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="{% url 'sucursales' %}">Sucursales</a>
 

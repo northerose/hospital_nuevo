@@ -1,11 +1,12 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
-{% block titulo %} {{titulo|upper}} {% endblock %}
+{% block titulo %}
+  {{ titulo|upper }}
+{% endblock %}
 
 {% block content %}
-
-<div class="tile is-ancestor">
+  <div class="tile is-ancestor">
     <div class="tile is-vertical is-8">
       <div class="tile">
         <div class="tile is-parent is-vertical">
@@ -23,7 +24,7 @@
             <p class="title">Hospital General</p>
             <p class="subtitle">Cuidando la salud de tu familia desde 1950</p>
             <figure class="image is-4by3">
-              <img src="\static\imagenes\imgMedica.jpeg">
+              <img src="\static\assets\imgMedica.jpeg" />
             </figure>
           </article>
         </div>
@@ -50,6 +51,4 @@
       </article>
     </div>
   </div>
-
-
 {% endblock %}
