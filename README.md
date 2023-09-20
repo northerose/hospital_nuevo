@@ -1,6 +1,8 @@
 # hospital_nuevo
 Proyecto Codo a Codo
 
+GRUPO 4:
+
 Integrante 1:	Ruiz	Juan,	juanmar140106@gmail.com
 
 Integrante 2:	Madroñal	Adrian,	madronala@gmail.com
