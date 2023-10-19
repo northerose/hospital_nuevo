@@ -3,12 +3,14 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django.urls import reverse
 from .forms import ContactoForm
 from django.contrib import messages
+from .models import Noticia
 
 # Create your views here.
 
 def inicio(request):
     titulo = 'inicio'
-    return render(request, 'inicio/inicio.html', {'titulo': titulo})
+    noticias = Noticia.objects.all() 
+    return render(request, 'inicio/inicio.html', {'titulo': titulo, 'noticias': noticias})
 
 def contacto(request):
 
