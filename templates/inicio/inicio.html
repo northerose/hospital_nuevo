@@ -12,7 +12,33 @@
         <div class="tile is-parent is-vertical">
           <article class="tile is-child notification is-primary">
             <p class="title">Noticias</p>
-            <p class="subtitle">titulo noticia</p>
+            {% for element in noticias %}
+              <p class="subtitle">{{element.titulo}}</p>
+              <p>
+                  <img src= '{{ MEDIA_URL }}{{element.imagen}}'>
+              </p>
+              <p>
+                {{element.contenido}}
+            </p>
+            {% endfor %}
+              
+            </table>
+            <nav class="pagination" role="navigation" aria-label="pagination">
+              <a class="pagination-previous is-disabled" title="This is the first page">Previous</a>
+              <a class="pagination-next">Next page</a>
+              <ul class="pagination-list">
+                <li>
+                  <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+                </li>
+                <li>
+                  <a class="pagination-link" aria-label="Goto page 2">2</a>
+                </li>
+                <li>
+                  <a class="pagination-link" aria-label="Goto page 3">3</a>
+                </li>
+              </ul>
+            </nav>
+          
           </article>
           <article class="tile is-child notification is-warning">
             <p class="title">Recomendaciones de Salud</p>
