@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block titulo %}
+  {{ titulo|upper }}
+{% endblock %}
+
+{% block content %}
+
+<p class="subtitle">{{noticia.titulo}}</p>
+<p>
+    <img width="150" height="150" src= '{{ MEDIA_URL }}{{noticia.imagen}}'>
+</p>
+<p>
+  {{noticia.contenido}}
+</p>
+
+{% endblock %}
