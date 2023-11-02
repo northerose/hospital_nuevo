@@ -9,8 +9,25 @@ from .models import Noticia
 
 def inicio(request):
     titulo = 'inicio'
-    noticias = Noticia.objects.all() 
-    return render(request, 'inicio/inicio.html', {'titulo': titulo, 'noticias': noticias})
+    pagina = request.GET.get('pagina')
+    if pagina and pagina.isnumeric():
+        pagina = int(pagina)
+        siguiente_pagina = pagina + 1
+        pagina_anterior = pagina-1
+        noticias = Noticia.objects.all().order_by('-id')
+        noticia = noticias[pagina-1]
+        
+    else:
+        noticia = Noticia.objects.last()
+        siguiente_pagina = 2
+        pagina_anterior = 0
+    
+    total_noticias = Noticia.objects.count()
+    return render(request, 'inicio/inicio.html', {'titulo': titulo, 'noticia': noticia, 'total_noticias': range(1, total_noticias+1), 'siguiente_pagina': siguiente_pagina, 'pagina_anterior': pagina_anterior})
+
+def noticias(request, noticia_id):
+    noticia = Noticia.objects.get(id=noticia_id)
+    return render(request, 'inicio/noticias.html',  {'noticia': noticia})
 
 def contacto(request):
 

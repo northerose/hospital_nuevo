@@ -12,30 +12,34 @@
         <div class="tile is-parent is-vertical">
           <article class="tile is-child notification is-primary">
             <p class="title">Noticias</p>
-            {% for element in noticias %}
-              <p class="subtitle">{{element.titulo}}</p>
+              <p class="subtitle">{{noticia.titulo}}</p>
               <p>
-                  <img src= '{{ MEDIA_URL }}{{element.imagen}}'>
+                  <img width="150" height="150" src= '{{ MEDIA_URL }}{{noticia.imagen}}'>
               </p>
               <p>
-                {{element.contenido}}
-            </p>
-            {% endfor %}
-              
+                {{noticia.contenido | truncatewords:50}}
+              <br>
+              <br>
+            </p><a href="/noticias/{{ noticia.id }}/">Leer más</a>
+            <br>
+            <br>
+                          
             </table>
             <nav class="pagination" role="navigation" aria-label="pagination">
-              <a class="pagination-previous is-disabled" title="This is the first page">Previous</a>
-              <a class="pagination-next">Next page</a>
+              
+              {% if siguiente_pagina <= total_noticias|length %}
+              <a class="pagination-previous is-disabled">Anterior</a>
+              <a class="pagination-next" href="/?pagina={{siguiente_pagina}}">Siguiente</a>
+              {% else %}
+              <a class="pagination-previous" href="/?pagina={{pagina_anterior}}">Anterior</a>
+              <a class="pagination-next is-disabled">Siguiente</a>
+              {% endif %}
               <ul class="pagination-list">
+                {% for numero in total_noticias %}
                 <li>
-                  <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+                  <a href="/?pagina={{numero}}" class="pagination-link is-current" aria-label="Page {{numero}}" aria-current="page">{{numero}}</a>
                 </li>
-                <li>
-                  <a class="pagination-link" aria-label="Goto page 2">2</a>
-                </li>
-                <li>
-                  <a class="pagination-link" aria-label="Goto page 3">3</a>
-                </li>
+                {% endfor %}
               </ul>
             </nav>
           
