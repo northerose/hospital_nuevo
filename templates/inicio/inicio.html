@@ -27,13 +27,13 @@
             </table>
             <nav class="pagination" role="navigation" aria-label="pagination">
               
-              {% if siguiente_pagina <= total_noticias|length %}
+              {% comment %} {% if siguiente_pagina = total_noticias|length %} {% endcomment %}
               <a class="pagination-previous is-disabled">Anterior</a>
               <a class="pagination-next" href="/?pagina={{siguiente_pagina}}">Siguiente</a>
-              {% else %}
+              {% comment %} {% else %} {% endcomment %}
               <a class="pagination-previous" href="/?pagina={{pagina_anterior}}">Anterior</a>
               <a class="pagination-next is-disabled">Siguiente</a>
-              {% endif %}
+              {% comment %} {% endif %} {% endcomment %}
               <ul class="pagination-list">
                 {% for numero in total_noticias %}
                 <li>

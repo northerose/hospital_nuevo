@@ -4,7 +4,7 @@ from django.urls import reverse
 from .forms import ContactoForm
 from django.contrib import messages
 from .models import Noticia
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def inicio(request):
@@ -43,13 +43,23 @@ def contacto(request):
             messages.error(
                 request, 'Por favor revisa los errores en el formulario')
     else:
-        return HttpResponseBadRequest("Mandaste cualquiera IMBECIL")
+        return HttpResponseBadRequest("Lo que enviaste no es correcto")
 
     context={
         'contacto_form': formulario
         
     }
     return render(request, 'inicio/contacto.html', context)
+
+
+@login_required
+def login(request):
+    return redirect(reverse ('inicio'))
+
+ 
+
+
+
 
 
 

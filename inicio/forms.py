@@ -3,6 +3,7 @@ import re
 from django.forms import ValidationError
 
 
+
 def solo_caracteres(value):
     if any(char.isdigit() for char in value):
         raise ValidationError('El nombre no puede contener números. %(valor)s', code='Invalid', params={'valor': value})
@@ -26,6 +27,8 @@ class ContactoForm(forms.Form):
             raise ValidationError(
                 "Debes especificar mejor el mensaje que nos envias")
         return data
+    
+    
 
 
 

@@ -8,6 +8,9 @@ from sucursales.models import Sucursal
 class Especialidad(models.Model):
     nombre = models.CharField(max_length=200)
     sucursal = models.ForeignKey(Sucursal, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.nombre
+    
 
 
 class Profesional(models.Model):

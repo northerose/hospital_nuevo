@@ -34,11 +34,11 @@
           <a class="navbar-link" href="{% url 'sucursales' %}">Sucursales</a>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item">About</a>
-            <a class="navbar-item">Jobs</a>
-            <a href="{% url 'contacto' %}" class="navbar-item">Contact</a>
+            {% comment %} <a class="navbar-item">About</a>
+            <a class="navbar-item">Jobs</a> {% endcomment %}
+            <a href="{% url 'contacto' %}" class="navbar-item">Contacto</a>
             <hr class="navbar-divider" />
-            <a class="navbar-item">Report an issue</a>
+            <a class="navbar-item">Reportar Problemas</a>
           </div>
         </div>
       </div>
@@ -46,8 +46,8 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary"><strong>Sign up</strong></a>
-            <a class="button is-light">Log in</a>
+            <a class="button is-primary"><strong>Registrarse</strong></a>
+            <a href="{% url 'login' %}" class="button is-light">Login</a>
           </div>
         </div>
       </div>

@@ -9,3 +9,4 @@ class Turno(models.Model):
     horario = models.ForeignKey(Horario, on_delete=models.CASCADE)
     hora = models.TimeField()
     fecha = models.DateField()
+    

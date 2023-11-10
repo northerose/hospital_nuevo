@@ -1,0 +1,41 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Login </title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="img"><img src="{% static 'assets/logo0.png' %}" alt="Logo"></div>
+        
+        <div class="login">
+        
+           <form method="POST" action="{% url 'login'%}">
+                {% csrf_token%}
+                <table>
+                <tr>
+                    <td>{{form.username.label_tag}}</td>
+                    <td>{{form.username}}</td>
+                </tr>
+                <tr>
+                    <td>{{form.password.label_tag}}</td>
+                    <td>{{form.password}}</td>
+                </tr>
+                </table>
+                
+                <div class="submit">
+                    <input type="submit" value="Ingresar">
+                </div>
+                <input type="hidden" name="next" value="{{ next }}">
+            </form>        
+        </div>          
+    </div>
+</body>
+
+</html>
