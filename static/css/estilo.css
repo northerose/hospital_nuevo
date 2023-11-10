@@ -1,0 +1,27 @@
+.navbar -item img {
+    max-height: 2.75rem;
+}
+
+/* pie de página */
+
+
+.seccion-footer {
+    background-color: #3abb81; 
+    color: #ffffff; 
+    padding: 20px; /* Ajustar según sea necesario */
+}
+
+#footer-logo {
+    margin-bottom: 10px; /* Ajustar */
+}
+
+.iconos-redes-sociales a i {
+    color: #ffffff; 
+    font-size: 18px; 
+    margin-right: 10px; 
+}
+
+.derechos-de-autor {
+    margin-top: 10px; 
+}
+
