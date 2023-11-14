@@ -5,9 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}" />      
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">  
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
     
     <title>
       {% block titulo %}
@@ -31,7 +30,7 @@
       <div class="navbar-start">
         <a class="navbar-item" href="{% url 'inicio' %}">Inicio</a>
 
-        <a class="navbar-item" href="{% url 'turno' 2023 %}">Turno Online</a>
+        <a class="navbar-item" href="{% url 'turno_p1' %}">Turno Online</a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="{% url 'sucursales' %}">Sucursales</a>
@@ -58,25 +57,27 @@
   </nav>
 
   <body>
-    {% block content %}
-
-    {% endblock %}
+    {% block content %}{% endblock %}
   </body>
+
+  <br><br><br><br>
   
-  <footer class="seccion-footer">
-    <img  id="footer-logo" src="static/assets/logo.png" alt="logo" width=50px  >
-    <p class="footer-texto ">Nuestra experiencia a su servicio </p>
-    <div class="iconos-redes-sociales ">
-      <a href="https://github.com/northerose/hospital_nuevo" target="_blank" rel="noopener noreferrer">
-         <i class="bi bi-facebook"></i>
-      </a>     
-      <a href="https://github.com/northerose/hospital_nuevo" target="_blank" rel="noopener noreferrer">
-         <i class="bi bi-github"></i>
-      </a>      
-      <a href="https://github.com/northerose/hospital_nuevo" target="_blank" rel="noopener noreferrer">
-         <i class="bi bi-envelope"></i>
-      </a>      
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <img  id="footer-logo" src="static/assets/logo.png" alt="logo" width=50px  >
+      <p class="footer-texto ">Nuestra experiencia a su servicio </p>
+      <div class="iconos-redes-sociales ">
+        <a href="https://github.com/northerose/hospital_nuevo" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-facebook"></i>
+        </a>     
+        <a href="https://github.com/northerose/hospital_nuevo" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-github"></i>
+        </a>      
+        <a href="https://github.com/northerose/hospital_nuevo" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-envelope"></i>
+        </a>      
+      </div>
+      <div class="derechos-de-autor ">Creado por Grupo4-CaC(2023) &#169;</div>
     </div>
-    <div class="derechos-de-autor ">Creado por Grupo4-CaC(2023) &#169;</div>
   </footer>
 </html>

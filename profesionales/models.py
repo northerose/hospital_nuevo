@@ -18,14 +18,17 @@ class Profesional(models.Model):
     matricula = models.CharField(max_length=8)
     especialidad = models.ForeignKey(Especialidad, on_delete=models.CASCADE)
 
-horarios = [
-            ('manana', "Mañana"),
-            ('tarde', "Tarde"),
-            ('noche', "Noche"),
-            ]
+    def __str__(self):
+        return self.persona.nombre
 
 
 class Horario(models.Model):
+    horarios = [
+        ('manana', "Mañana"),
+        ('tarde', "Tarde"),
+        ('noche', "Noche"),
+    ]
+
     profesional = models.ForeignKey(Profesional, on_delete=models.CASCADE)
     horario = models.CharField(max_length=100, choices= horarios, default='manana')
 
