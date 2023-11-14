@@ -1,0 +1,115 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block titulo %}
+  Paso 5 - Confirmación - Nuevo turno
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+
+<div class="container">
+  
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Sucursal</p>
+        <p class="title">
+          <span class="icon has-text-success"">
+            <i class="fa fa-check-circle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Especialidad</p>
+        <p class="title">
+          <span class="icon has-text-success"">
+            <i class="fa fa-check-circle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Profesional</p>
+        <p class="title">
+          <span class="icon has-text-success"">
+            <i class="fa fa-check-circle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+  
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Fecha</p>
+        <p class="title">
+          <span class="icon has-text-success"">
+            <i class="fa fa-check-circle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Confirmación</p>
+        <p class="title">
+          <span class="icon has-text-warning">
+            <i class="fa fa-exclamation-triangle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+  </nav>
+
+
+  <br><br>
+
+  <form class="box" method="post">{% csrf_token %}
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <p class="bd-notification is-primary">
+          <h1 class="subtitle is-1">Confirmar turno</h1>
+        </p>
+      </div>
+    </div>
+    <hr>
+    <div class="field">
+      <h1 class="title">Profesional</h1>
+      <div class="control">
+        <input class="input is-large is-static" name="profesional" type="hidden" value="{{profesional.id}}">
+        <h2 class="subtitle is-3">{{profesional.persona.nombre}} {{profesional.persona.apellido}}</h2>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label is-large">Fecha</label>
+      <div class="control">
+        <input class="input is-large is-static" name="fecha" type="text" placeholder="Fecha..." readonly value="{{fecha}}">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label is-large">Hora</label>
+      <div class="control">
+        <input class="input is-large is-static" name="hora" type="text" placeholder="Hora..." readonly value="{{hora}}">
+      </div>
+    </div>
+    <br>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <a class="button is-light is-large" href="javascript:window.history.back();">
+          Atras
+        </a>
+      </p>
+      <div class="control">
+        <button class="button is-primary is-large" type="submit">Confirmar turno</button>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+{% endblock %}

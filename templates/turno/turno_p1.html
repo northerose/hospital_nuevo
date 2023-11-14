@@ -1,0 +1,94 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block titulo %}
+  Paso 1 - Sucursal - Nuevo turno
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<div class="container">
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Sucursal</p>
+        <p class="title">
+          <span class="icon has-text-warning">
+            <i class="fa fa-exclamation-triangle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Especialidad</p>
+        <p class="title">
+          <span class="icon has-text-warning">
+            <i class="fa fa-exclamation-triangle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Profesional</p>
+        <p class="title">
+          <span class="icon has-text-warning">
+            <i class="fa fa-exclamation-triangle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Fecha</p>
+        <p class="title">
+          <span class="icon has-text-warning">
+            <i class="fa fa-exclamation-triangle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Confirmación</p>
+        <p class="title">
+          <span class="icon has-text-warning">
+            <i class="fa fa-exclamation-triangle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+  </nav>
+
+
+  <br>
+
+  <form class="box" method="post">{% csrf_token %}
+    <div class="field">
+      <label class="label is-large">Seleccione la sucursal</label>
+      <div class="control">
+        <div class="select is-large">
+          <select name="sucursal">
+            <option></option>
+            {% for sucursal in sucursales %}
+            <option value="{{sucursal.id}}">{{sucursal.nombre}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <p class="help is-danger">{{form.sucursal.errors.as_text}}</p>
+    </div>
+    <br>
+
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-primary is-large" type="submit">Siguiente</button>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+{% endblock %}

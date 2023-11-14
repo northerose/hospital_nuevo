@@ -1,0 +1,101 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block titulo %}
+  Paso 3 - Profesional - Nuevo turno
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<div class="container">
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Sucursal</p>
+        <p class="title">
+          <span class="icon has-text-success">
+            <i class="fa fa-check-circle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Especialidad</p>
+        <p class="title">
+          <span class="icon has-text-success">
+            <i class="fa fa-check-circle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Profesional</p>
+        <p class="title">
+          <span class="icon has-text-warning">
+            <i class="fa fa-exclamation-triangle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+  
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Fecha</p>
+        <p class="title">
+          <span class="icon has-text-warning">
+            <i class="fa fa-exclamation-triangle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Confirmación</p>
+        <p class="title">
+          <span class="icon has-text-warning">
+            <i class="fa fa-exclamation-triangle"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+  </nav>
+
+
+  <br>
+
+  <form class="box" method="post">{% csrf_token %}
+    <div class="field">
+      <label class="label is-large">Seleccione el Profesional </label>
+      <div class="control">
+        <div class="select is-large">
+          <select name="profesional">
+            <option></option>
+            {% for profesional in profesionales %}
+            <option value="{{profesional.id}}">{{profesional.matricula}} - {{profesional.persona.nombre}} {{profesional.persona.apellido}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <p class="help is-danger">{{form.profesional.errors.as_text}}</p>
+    </div>
+    <br>
+
+
+    <div class="field is-grouped">
+      <p class="control">
+        <a class="button is-light is-large" href="javascript:window.history.back();">
+          Atras
+        </a>
+      </p>
+      <div class="control">
+        <button class="button is-primary is-large" type="submit">Siguiente</button>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+{% endblock %}
