@@ -56,6 +56,8 @@ def contacto(request):
 def login(request):
     return redirect(reverse ('inicio'))
 
+
+
  
 
 
