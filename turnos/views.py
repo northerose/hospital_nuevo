@@ -110,7 +110,7 @@ def turno_p5(request):
         form = Paso5Form(datos)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('turno_p5'))
+            return HttpResponseRedirect(reverse('mis_turnos'))
     else:
         form = Paso5Form()
 

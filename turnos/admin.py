@@ -5,4 +5,4 @@ from .models import Turno
 
 @admin.register(Turno)
 class TurnoAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['profesional', 'persona', 'fecha', 'hora']
