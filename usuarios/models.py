@@ -1,12 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
-# Create your models here.
 
 class Persona(models.Model):
-    nombre = models.CharField(max_length=30, verbose_name="nombre")
-    apellido = models.CharField(max_length=30, verbose_name="apellido")
-    email = models.EmailField(max_length=150, verbose_name="email") 
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     dni = models.PositiveIntegerField(verbose_name="dni", unique=True)
 
     def clean_dni(self):
@@ -14,11 +12,9 @@ class Persona(models.Model):
             raise ValidationError("El Dni debe ser un numero positivo de 8 digitos")
         return self.cleaned_data['dni']
 
-        class Meta:
-          abstract = True
-
+    @property
     def nombre_completo(self):
-        return f"{self.nombre} {self.apellido}"
+        return f"{self.user.first_name} {self.user.last_name}"
     
     def __str__(self):
-        return self.nombre_completo()
+        return self.nombre_completo

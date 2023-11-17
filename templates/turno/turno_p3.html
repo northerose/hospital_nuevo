@@ -74,7 +74,7 @@
           <select name="profesional">
             <option></option>
             {% for profesional in profesionales %}
-            <option value="{{profesional.id}}">{{profesional.matricula}} - {{profesional.persona.nombre}} {{profesional.persona.apellido}}</option>
+            <option value="{{profesional.id}}">{{profesional.matricula}} - {{profesional.persona.nombre_completo}}</option>
             {% endfor %}
           </select>
         </div>

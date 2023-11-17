@@ -19,7 +19,7 @@ class Profesional(models.Model):
     especialidad = models.ForeignKey(Especialidad, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.persona.nombre
+        return self.persona.nombre_completo
 
 
 class Horario(models.Model):

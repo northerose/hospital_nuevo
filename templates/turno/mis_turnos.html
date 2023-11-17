@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block titulo %}
+  Mis turnos
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+
+<div class="container">
+
+
+  <br><br>
+
+  <div class="box">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <p class="bd-notification is-primary">
+          <h1 class="subtitle is-1">Mis turnos</h1>
+        </p>
+      </div>
+    </div>
+    <hr>
+
+    <table class="table is-fullwidth is-bordered is-striped is-hoverable">
+      <thead>
+        <tr>
+          <th>Profesional</th>
+          <th>Especialidad</th>
+          <th>Sucursal</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for turno in turnos %}
+        <tr>
+          <td>{{turno.profesional.persona.nombre_completo}}</td>
+          <td>{{turno.profesional.especialidad.nombre}}</td>
+          <td>{{turno.profesional.especialidad.sucursal.nombre}}</td>
+          <td>{{turno.fecha}}</td>
+          <td>{{turno.hora}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</div>
+{% endblock %}

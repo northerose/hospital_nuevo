@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django.urls import reverse
 from .forms import ContactoForm
 from django.contrib import messages
-from .models import Noticia
+from .models import Noticia, Recomendacion
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -23,11 +23,16 @@ def inicio(request):
         pagina_anterior = 0
     
     total_noticias = Noticia.objects.count()
+
     return render(request, 'inicio/inicio.html', {'titulo': titulo, 'noticia': noticia, 'total_noticias': range(1, total_noticias+1), 'siguiente_pagina': siguiente_pagina, 'pagina_anterior': pagina_anterior})
 
 def noticias(request, noticia_id):
     noticia = Noticia.objects.get(id=noticia_id)
     return render(request, 'inicio/noticias.html',  {'noticia': noticia})
+
+def recomendaciones(request, recomendacion_id):
+    recomendacion = Recomendacion.objects.get(id=recomendacion_id)
+    return render(request, 'inicio/recomendaciones.html',  {'recomendacion': recomendacion})
 
 def contacto(request):
 

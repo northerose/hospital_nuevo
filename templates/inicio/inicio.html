@@ -17,7 +17,7 @@
                   <img width="150" height="150" src= '{{ MEDIA_URL }}{{noticia.imagen}}'>
               </p>
               <p>
-                {{noticia.contenido | truncatewords:50}}
+                {{noticia.contenido | truncatewords:10}}
               <br>
               <br>
             </p><a href="/noticias/{{ noticia.id }}/">Leer más</a>
@@ -43,11 +43,6 @@
               </ul>
             </nav>
           
-          </article>
-          <article class="tile is-child notification is-warning">
-            <p class="title">Recomendaciones de Salud</p>
-            <p class="subtitle">titulo recomendaciones</p>
-          </article>
         </div>
         <div class="tile is-parent">
           <article class="tile is-child notification is-info">

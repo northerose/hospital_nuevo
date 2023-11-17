@@ -2,17 +2,34 @@
 {% load static %}
 
 {% block titulo %}
-  {{ titulo|upper }}
+  {{ noticia.titulo |upper }}
 {% endblock %}
 
 {% block content %}
+<br><br><br>
+<div class="container">
 
-<p class="subtitle">{{noticia.titulo}}</p>
+<p class="title is-2">{{noticia.titulo}}</p>
+<h2 class="subtitle">{{noticia.fecha}}</h2>
 <p>
     <img width="150" height="150" src= '{{ MEDIA_URL }}{{noticia.imagen}}'>
 </p>
+<br>
+
 <p>
   {{noticia.contenido}}
 </p>
+
+<br>
+
+<p class="subtitle is-5">Fuente: {{noticia.fuente}}</p>
+<br>
+
+Etiquetas:
+{% for etiqueta in noticia.etiquetas.all %}
+<span class="tag is-light">{{etiqueta.nombre}}</span>
+{% endfor %}
+
+</div>
 
 {% endblock %}

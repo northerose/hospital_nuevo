@@ -5,14 +5,14 @@ from .models import Profesional, Horario, Especialidad
 
 @admin.register(Profesional)
 class ProfesionalAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['persona', 'matricula', 'especialidad']
 
 
 @admin.register(Horario)
 class HorarioAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['profesional', 'horario']
 
 
 @admin.register(Especialidad)
 class EspecialidadAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['nombre', 'sucursal']

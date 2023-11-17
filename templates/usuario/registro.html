@@ -9,22 +9,20 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="htpps://unpkg.com/swiper@7/swiper-bundle.min.css">
-    <title>Login </title>
+    <title>Registro de Usuario / Paciente</title>
 </head>
 
 <body>
     <div class="panel">
         <div class="img"><img src="{% static 'assets/logo0.png' %}" alt="Logo"></div>
-        <h3>Autogestión de Paciente</h3>
+        <h3>Registro de Usuario / Paciente</h3>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <div class="ingresar">
-            <button type="submit">Ingresar al Sistema</button>
-            <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+                <button type="submit">Registrar</button>
             </div>
             <div class="registrar">
-            <p><a href="{% url 'registro' %}">Registrarse</a></p>
             </div>
         </form>
     </div>

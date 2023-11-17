@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block titulo %}
+  {{ recomendacion.titulo |upper }}
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<div class="container">
+
+<p class="title is-2">{{recomendacion.titulo}}</p>
+<h2 class="subtitle">{{recomendacion.fecha}}</h2>
+<p>
+    <img width="150" height="150" src= '{{ MEDIA_URL }}{{recomendacion.imagen}}'>
+</p>
+<br>
+
+<p>
+  {{recomendacion.contenido}}
+</p>
+
+<br>
+
+<p class="subtitle is-5">Fuente: {{recomendacion.fuente}}</p>
+<br>
+
+Etiquetas:
+{% for etiqueta in recomendacion.etiquetas.all %}
+<span class="tag is-light">{{etiqueta.nombre}}</span>
+{% endfor %}
+
+</div>
+
+{% endblock %}

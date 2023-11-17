@@ -1,12 +1,17 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from sucursales.models import Sucursal
 from profesionales.models import Especialidad, Profesional, Horario
+
 from .forms import Paso1Form, Paso2Form, Paso3Form, Paso4Form, Paso5Form
+from .models import Turno
 
 
+
+@login_required
 def turno_p1(request):
     if request.method == "POST":
         form = Paso1Form(request.POST)
@@ -22,6 +27,7 @@ def turno_p1(request):
     return render(request, 'turno/turno_p1.html', {'form': form, 'sucursales': sucursales})
 
 
+@login_required
 def turno_p2(request, sucursal_id):
     if request.method == "POST":
         form = Paso2Form(request.POST)
@@ -36,6 +42,7 @@ def turno_p2(request, sucursal_id):
     return render(request, 'turno/turno_p2.html', {'form': form, 'especialidades': especialidades})
 
 
+@login_required
 def turno_p3(request, especialidad_id):
     if request.method == "POST":
         form = Paso3Form(request.POST)
@@ -50,6 +57,7 @@ def turno_p3(request, especialidad_id):
     return render(request, 'turno/turno_p3.html', {'form': form, 'profesionales': profesionales})
 
 
+@login_required
 def turno_p4(request, profesional_id):
     if request.method == "POST":
         datos = {
@@ -90,18 +98,18 @@ def turno_p4(request, profesional_id):
     return render(request, 'turno/turno_p4.html', {'form': form, 'horarios': horarios})
 
 
+@login_required
 def turno_p5(request):
     if request.method == "POST":
-
         datos = {
-            'persona': request.user,  # relacionar persona con usuario
+            'persona': request.user.persona,
             'profesional': request.POST.get('profesional'),
             'fecha': request.POST.get('fecha'),
             'hora': request.POST.get('hora'),
         }
         form = Paso5Form(datos)
         if form.is_valid():
-            profesional = form.cleaned_data['profesional']
+            form.save()
             return HttpResponseRedirect(reverse('turno_p5'))
     else:
         form = Paso5Form()
@@ -111,3 +119,11 @@ def turno_p5(request):
     hora = request.GET.get('hora')
 
     return render(request, 'turno/turno_p5.html', {'form': form, 'profesional': profesional, 'fecha': fecha, 'hora': hora})
+
+
+@login_required
+def mis_turnos(request):
+
+    turnos = Turno.objects.filter(persona=request.user.persona)
+
+    return render(request, 'turno/mis_turnos.html', {'turnos': turnos})
